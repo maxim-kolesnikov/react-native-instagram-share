@@ -3,11 +3,18 @@
 
 ## Getting started
 
-`$ npm install react-native-instagram-share --save`
+`$ git clone https://github.com/makskolesnikov/react-native-instagram-share.git`
 
 ### Mostly automatic installation
+```javascript
+"dependencies": {
+    ...
+    "react-native-instagram-share": "git+ssh://git@github.com/makskolesnikov/react-native-instagram-share.git",
+    ...
+}
+```
 
-`$ react-native link react-native-instagram-share`
+`$ npm i`
 
 ### Manual installation
 
@@ -21,8 +28,10 @@
 
 #### Android
 
+In the process of develop
+
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactlibrary.RNInstagramSharePackage;` to the imports at the top of the file
+  - Add `import com.RNInstagramShare.RNInstagramSharePackage;` to the imports at the top of the file
   - Add `new RNInstagramSharePackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
@@ -34,20 +43,16 @@
       compile project(':react-native-instagram-share')
   	```
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
 
-1. In Visual Studio add the `RNInstagramShare.sln` in `node_modules/react-native-instagram-share/windows/RNInstagramShare.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Com.Reactlibrary.RNInstagramShare;` to the usings at the top of the file
-  - Add `new RNInstagramSharePackage()` to the `List<IReactPackage>` returned by the `Packages` method
-
-
-## Usage
+## Usage example
 ```javascript
 import RNInstagramShare from 'react-native-instagram-share';
 
-// TODO: What to do with the module?
-RNInstagramShare;
+...
+  RNInstagramShare.createPost(
+    { url: link },  // `url` is global link for iOS and uri for Android e.g.: `file://..`
+	(res) => { console.log(res); }, // callback function return result `true` if user have instagram app and can create post
+  );
+...
 ```
   
